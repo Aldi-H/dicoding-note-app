@@ -24,9 +24,18 @@ const NoteItem = () => {
           April 14, 2022, 4:27:34
         </small>
         <div className="flex flex-row gap-x-2.5">
-          <FiTrash2 className="cursor-pointer text-red-500" size="1.3em" />
-          <FiRotateCcw className="cursor-pointer text-gray-800" size="1.3em" />
-          <FiArchive className="cursor-pointer text-gray-800" size="1.3em" />
+          <FiTrash2
+            className="cursor-pointer text-red-500 hover:text-red-500/85"
+            size="1.3em"
+          />
+          <FiRotateCcw
+            className="cursor-pointer text-gray-800 hover:text-gray-800/85"
+            size="1.3em"
+          />
+          <FiArchive
+            className="cursor-pointer text-gray-800 hover:text-gray-800/85"
+            size="1.3em"
+          />
         </div>
       </footer>
     </div>
