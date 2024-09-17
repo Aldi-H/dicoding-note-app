@@ -28,7 +28,7 @@ function App() {
       archived: false,
     };
 
-    const updatedNotes = [...notes, note];
+    const updatedNotes = [note, ...notes];
     setNotes(updatedNotes);
 
     handleToggleModal();
