@@ -20,6 +20,7 @@ const NoteLists = ({ notes, noteSection }: NoteListsProps) => {
           notes.map((note) => {
             return (
               <NoteItem
+                key={note.id}
                 noteTitle={note.title}
                 noteContent={note.body}
                 noteDate={formatDate(note.createdAt)}
