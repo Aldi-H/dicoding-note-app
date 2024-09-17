@@ -21,14 +21,14 @@ const Modal = ({ isOpen, onClose }: ModalProps) => {
   return (
     <div
       onClick={handleOutsideClick}
-      className="fixed inset-0 z-50 flex justify-center items-center bg-black bg-opacity-50"
+      className="fixed inset-0 z-50 flex items-center justify-center bg-black bg-opacity-50"
     >
       <div
         onClick={handleModalContentClick}
-        className="relative w-full max-w-2xl p-4 bg-white rounded-lg shadow"
+        className="relative w-full max-w-2xl rounded-lg bg-white p-4 shadow"
       >
         {/* Modal Header */}
-        <div className="flex items-center justify-between p-4 border-b rounded-t">
+        <div className="flex items-center justify-between rounded-t border-b p-4">
           <h3 className="text-lg font-semibold text-gray-900">Add New Note</h3>
           <button
             onClick={onClose}
@@ -44,19 +44,19 @@ const Modal = ({ isOpen, onClose }: ModalProps) => {
           <input
             type="text"
             placeholder="Title"
-            className="block w-full py-2 px-4 my-2 text-gray-700 border border-gray-300 rounded-lg focus:outline-none focus:ring-primary-500"
+            className="focus:ring-primary-500 my-2 block w-full rounded-lg border border-gray-300 px-4 py-2 text-gray-700 focus:outline-none"
           />
           <textarea
             rows={5}
             placeholder="Write your notes here..."
-            className="block w-full py-2 px-4 my-2 text-gray-700 border border-gray-300 rounded-lg focus:outline-none focus:ring-primary-500"
+            className="focus:ring-primary-500 my-2 block w-full rounded-lg border border-gray-300 px-4 py-2 text-gray-700 focus:outline-none"
           />
         </div>
         {/* End of Modal Body */}
 
         {/* Modal Footer */}
-        <div className="flex justify-end px-4 mb-4">
-          <button className="bg-black/90 hover:bg-black/85 text-white p-2 pr-3 flex gap-2 font-semibold text-sm rounded-md">
+        <div className="mb-4 flex justify-end px-4">
+          <button className="flex gap-2 rounded-md bg-black/90 p-2 pr-3 text-sm font-semibold text-white hover:bg-black/85">
             <FiPlus size="1.3em" /> Add Note
           </button>
         </div>
