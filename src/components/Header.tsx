@@ -1,5 +1,7 @@
-import { FiPlusCircle } from "react-icons/fi";
 import SearchBar from "./SearchBar";
+import { FiPlusCircle } from "react-icons/fi";
+
+import Button from "./Button";
 
 interface HeaderProps {
   onOpenModal: () => void;
@@ -7,16 +9,15 @@ interface HeaderProps {
 
 const Header = ({ onOpenModal }: HeaderProps) => {
   return (
-    <div className=" flex items-center justify-between py-4 mb-8">
-      <h1 className="text-2xl font-bold text-center">Personal Notes</h1>
+    <div className="mb-8 flex items-center justify-between py-4">
+      <h1 className="text-center text-2xl font-bold">Personal Notes</h1>
       <SearchBar />
-      <button
-        onClick={onOpenModal}
-        className="border-2 border-black p-2 flex gap-2 font-semibold text-sm rounded-md"
-      >
-        <FiPlusCircle size="1.3em" />
-        Add Notes
-      </button>
+      <Button
+        icon={<FiPlusCircle size="1.3em" />}
+        buttonName="Add Notes"
+        buttonAction={onOpenModal}
+        className="border-2 border-black"
+      />
     </div>
   );
 };

@@ -1,6 +1,7 @@
 import { MouseEvent } from "react";
 
 import { FiPlus, FiX } from "react-icons/fi";
+import Button from "./Button";
 
 interface ModalProps {
   isOpen: boolean;
@@ -56,9 +57,11 @@ const Modal = ({ isOpen, onClose }: ModalProps) => {
 
         {/* Modal Footer */}
         <div className="mb-4 flex justify-end px-4">
-          <button className="flex gap-2 rounded-md bg-black/90 p-2 pr-3 text-sm font-semibold text-white hover:bg-black/85">
-            <FiPlus size="1.3em" /> Add Note
-          </button>
+          <Button
+            icon={<FiPlus size="1.3em" />}
+            buttonName="Add Note"
+            className="bg-black/90 pr-3 text-white hover:bg-black/85"
+          />
         </div>
         {/* End of Modal Footer */}
       </div>
