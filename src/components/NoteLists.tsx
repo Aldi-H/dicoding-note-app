@@ -4,9 +4,16 @@ import NoteItem from "./NoteItem";
 interface NoteListsProps {
   notes: Note[];
   noteSection: string;
+  handleArchiveNote: (id: number | string) => void;
+  handleDeleteNote: (id: number | string) => void;
 }
 
-const NoteLists = ({ notes, noteSection }: NoteListsProps) => {
+const NoteLists = ({
+  notes,
+  noteSection,
+  handleArchiveNote,
+  handleDeleteNote,
+}: NoteListsProps) => {
   return (
     <div className="py-4">
       <h2 className="pb-6 text-2xl font-bold">{noteSection}</h2>
@@ -21,10 +28,13 @@ const NoteLists = ({ notes, noteSection }: NoteListsProps) => {
             return (
               <NoteItem
                 key={note.id}
+                noteId={note.id}
                 noteTitle={note.title}
                 noteContent={note.body}
                 noteDate={formatDate(note.createdAt)}
                 noteArchived={note.archived}
+                handleDeleteNote={handleDeleteNote}
+                handleArchiveToggle={handleArchiveNote}
               />
             );
           })

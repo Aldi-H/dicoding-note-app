@@ -35,6 +35,31 @@ function App() {
     handleToggleModal();
   };
 
+  const handleArchiveNote = (noteId: string | number) => {
+    const updatedNotes = notes.map((note) =>
+      note.id === noteId ? { ...note, archived: true } : note,
+    );
+    setNotes(updatedNotes);
+
+    console.log(updatedNotes);
+  };
+
+  const handleUnarchiveNote = (noteId: string | number) => {
+    const updatedNotes = notes.map((note) =>
+      note.id === noteId ? { ...note, archived: false } : note,
+    );
+    setNotes(updatedNotes);
+
+    console.log(updatedNotes);
+  };
+
+  const handleDeleteNote = (noteId: string | number) => {
+    const updatedNotes = notes.filter((note) => note.id !== noteId);
+    setNotes(updatedNotes);
+
+    console.log(updatedNotes);
+  };
+
   return (
     <div className="m-auto max-w-screen-xl">
       <Modal
@@ -46,10 +71,14 @@ function App() {
       <div>
         <NoteLists
           notes={notes.filter((note) => !note.archived)}
+          handleArchiveNote={handleArchiveNote}
+          handleDeleteNote={handleDeleteNote}
           noteSection="Catatan Aktif"
         />
         <NoteLists
           notes={notes.filter((note) => note.archived)}
+          handleArchiveNote={handleUnarchiveNote}
+          handleDeleteNote={handleDeleteNote}
           noteSection="Arsip"
         />
       </div>

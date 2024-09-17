@@ -1,17 +1,23 @@
 import { FiArchive, FiRotateCcw, FiTrash2 } from "react-icons/fi";
 
 interface NoteItemProps {
+  noteId: number | string;
   noteTitle: string;
   noteContent: string;
   noteDate: string;
   noteArchived: boolean;
+  handleArchiveToggle: (id: number | string) => void;
+  handleDeleteNote: (id: number | string) => void;
 }
 
 const NoteItem = ({
+  noteId,
   noteTitle,
   noteContent,
   noteDate,
   noteArchived,
+  handleArchiveToggle,
+  handleDeleteNote,
 }: NoteItemProps) => {
   return (
     <div className="flex h-max flex-col justify-between whitespace-pre-wrap rounded-md border p-4 shadow backdrop-blur backdrop-brightness-100">
@@ -29,16 +35,19 @@ const NoteItem = ({
         <small className="font-semibold text-gray-500">{noteDate}</small>
         <div className="flex flex-row gap-x-2.5">
           <FiTrash2
+            onClick={() => handleDeleteNote(noteId)}
             className="cursor-pointer text-red-500 hover:text-red-500/85"
             size="1.3em"
           />
           {noteArchived ? (
             <FiRotateCcw
+              onClick={() => handleArchiveToggle(noteId)}
               className="cursor-pointer text-gray-800 hover:text-gray-800/85"
               size="1.3em"
             />
           ) : (
             <FiArchive
+              onClick={() => handleArchiveToggle(noteId)}
               className="cursor-pointer text-gray-800 hover:text-gray-800/85"
               size="1.3em"
             />
