@@ -1,7 +1,10 @@
 import { useState } from "react";
+
+import { initialData } from "./lib/NotesData";
+
 import Header from "./components/Header";
 import Modal from "./components/Modal";
-import NoteItem from "./components/NoteItem";
+import NoteLists from "./components/NoteLists";
 
 import "./App.css";
 
@@ -13,17 +16,18 @@ function App() {
   };
 
   return (
-    <div className="max-w-screen-xl m-auto">
+    <div className="m-auto max-w-screen-xl">
       <Modal isOpen={isModalOpen} onClose={handleToggleModal} />
       <Header onOpenModal={handleToggleModal} />
-      <div className="grid lg:grid-cols-3 md:grid-cols-2 xl:grid-cols-4 grid-flow-row gap-4 ">
-        <NoteItem />
-        <NoteItem />
-        <NoteItem />
-        <NoteItem />
-        <NoteItem />
-        <NoteItem />
-        <NoteItem />
+      <div>
+        <NoteLists
+          notes={initialData.filter((note) => !note.archived)}
+          noteSection="Catatan Aktif"
+        />
+        <NoteLists
+          notes={initialData.filter((note) => note.archived)}
+          noteSection="Arsip"
+        />
       </div>
     </div>
   );
